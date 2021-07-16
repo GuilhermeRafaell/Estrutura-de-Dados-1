@@ -1,7 +1,20 @@
 #include <stdio.h>
 
 int main(){
+    double m,n1,n2;
+    
+
     printf("<< Calculo da Media >>\n");
+    printf("Digite a nota da prova 1: ");
+    scanf("%lf",&n1);
+    printf("Digite a nota da prova 2: ");
+    scanf("%lf",&n2);
+
+    m=(n1+n2)/2.0;
+
+    printf("A nota media eh %.0lf\n",m);
+
+//O algoritmo tambem abrange notas com valores de reais 
 }
 
 /*
