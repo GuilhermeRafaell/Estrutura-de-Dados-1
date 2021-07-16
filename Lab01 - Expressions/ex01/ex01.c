@@ -1,7 +1,17 @@
 #include <stdio.h>
 
 int main(){
-    printf("<< Calculo do Quadrado de n >>\n");
+    double n,q;
+
+    printf("<< Calculo do Quadrado de n>>\n");
+
+    printf("Digite um numero: ");
+    scanf("%lf",&n);
+
+    q = n*n;
+
+    printf("O valor de %.1lf ao quadrado eh: %.2lf",n,q);
+
 }
 
 /*

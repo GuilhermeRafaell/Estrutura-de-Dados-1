@@ -1,7 +1,16 @@
 #include <stdio.h>
 
 int main() {
+    int n;
+
     printf("<< Sucessor e Antecessor >>\n");
+    printf("Dite um numero: ");
+    scanf("%d",&n);
+    printf("\n");
+    printf("Antecessor: %d",n-1);
+    printf("Numero: %d",n);
+    printf("Sucessor: %d",n+1);
+
 }
 
 /*

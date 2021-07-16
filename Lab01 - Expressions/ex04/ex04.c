@@ -1,7 +1,20 @@
 #include <stdio.h>
 
 int main() {
+    int m,nota[3];
+
     printf("<< Media Aritmetica >>\n");
+    
+    for(int i=0; i<4 ;i++){
+        printf("Digite a %da nota: ",i+1);
+        scanf("%d",&nota[i]);
+    }
+
+    m = (nota[0]+nota[1]+nota[2]+nota[3])/4;
+
+    printf("==Notas==\n");
+    printf("Nota 1: %d; Nota 2: %d; Nota 3: %d; Nota 4: %d\n",nota[0],nota[1],nota[2],nota[3]);
+    printf("Media: %d",m);
 }
 
 /*
