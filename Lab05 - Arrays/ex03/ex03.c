@@ -1,9 +1,19 @@
 #include <stdio.h>
 
 int main(){
-    printf("<< Listando um vetor em ordem inversa !!! >>\n");
+    int vet[6];
+    printf("<< Listando um vetor em ordem inversa >>\n");
+    for(int i=0;i<6;i++){
+        printf("Entre com o numero %d: ",i+1);
+        scanf("%d",&vet[i]);
+    }
+    printf("Valores lidos: ");
+    for(int i=5;i>=0;i--)
+        printf(" %d",vet[i]);
+    
     return 0;
 }
+
 
 /*
 Faça um programa em que o usuário digita 6 números inteiros e o programa mostra

@@ -1,8 +1,16 @@
 #include <stdio.h>
 
 int main(){
+    int i,j,contador=0,vet[8];
     printf("<< Valores iguais >>\n");
+    
+    for(i=0;i<8;i++){
+        printf("Entre com o numero %d: ",i+1);;
+        scanf("%d",&vet[i]);
+    }
 
+    printf("\n\n");
+    
     return 0;
 }
 

@@ -1,8 +1,24 @@
 #include <stdio.h>
 
 int main(){
+    int i,maior,nota[5];
+    maior=nota[0];
     printf("<< Normalizando as notas >>\n");
+    for(i=0;i<5;i++){
+        printf("Entre com a nota do aluno %d: ",i+1);
+        scanf("%d",&nota[i]);
+    }
 
+    printf("Notas normalizadas\n");
+
+    if(nota[i]>maior){
+        maior=nota[i];
+        nota[i]=100;
+    }
+
+    for(i=0;i<5;i++){
+        printf("A nota do aluno %d eh %d\n",i+1,nota[i]*2);
+    }
     return 0;
 }
 

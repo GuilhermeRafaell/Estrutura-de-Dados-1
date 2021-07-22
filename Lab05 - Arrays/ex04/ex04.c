@@ -1,8 +1,25 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(){
-    printf("<< Listando um vetor de numeros pares>>\n");
+    int i=0,vet[6];
 
+    printf("<< Listando um vetor de numeros pares >>\n");
+
+    while(i < 6){
+        if(vet[i] % 2 == 0){
+            printf("Entre com o numero %d: ",i+1);
+            scanf("%d",&vet[i]);
+        }
+        else if(vet[i] % 2 != 0)
+            printf("Erro: Valor Invalido. \n");
+
+        i++;
+        }
+
+    printf("Os numeros digitados foram: \n");
+    for(i=0;i<6;i++)
+        printf(" %d",vet[i]);
 
     return 0;
 }

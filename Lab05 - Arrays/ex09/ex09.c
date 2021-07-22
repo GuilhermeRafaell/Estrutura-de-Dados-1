@@ -1,7 +1,35 @@
 #include <stdio.h>
+#define MAX 100
 
 int main(){
+    int num,soma=0,nota[MAX];
+    double media;
+
     printf("<< Media de n alunos. Maximo 100 alunos >>\n");
+    printf("Entre com o numero de alunos: ");
+    scanf("%d",&num);
+
+    if(num>MAX)
+        printf("Erro! O numero maximo de alunos permitido eh 100.\n");
+    
+    for(int i=0;i<num;i++){
+        printf("Digite a nota do anulo %d: ",i+1);
+        scanf("%d",&nota[i]);
+    }
+    printf("\n");
+    printf("Relatorio de Notas.\n");
+    printf("\n");
+    for(int i=0;i<num;i++){
+        printf("Nota do aluno %d: %d\n",i,nota[i]);
+    }
+
+    for(int i=0;i<num;i++){
+        soma = soma + nota[i];
+    }
+
+    media = soma/(double)num; //Cast para a divisao resultar um numero real
+
+    printf("Media da turma: %.1lf",media);
 
     return 0;
 }

@@ -1,7 +1,21 @@
 #include <stdio.h>
+#include <math.h>
 
 int main(){
+    int soma,valor[5];
+    double media,desvioPadrao = 0.0;
+
     printf("<< Media e desvio-padrao >>\n");
+
+    for(int i=0;i<5;i++){
+        printf("Digite o valor %d: ",i+1);
+        scanf("%d",&valor[i]);
+    }
+
+    media = (valor[0]+valor[1]+valor[2]+valor[3]+valor[4])/5.0;
+    desvioPadrao = sqrt( (pow(valor[0]-media,2) + pow(valor[1]-media,2) + pow(valor[2]-media,2) + pow(valor[3]-media,2) + pow(valor[4]-media,2))/ 4.0 );
+
+    printf("A media eh %.0lf e o desvio-padrao eh %.2lf\n",media,desvioPadrao);
 
     return 0;
 }
