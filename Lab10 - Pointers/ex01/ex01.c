@@ -1,7 +1,18 @@
 #include <stdio.h>
 
 int main(){
+    int val[5] = {2,4,5,8,10};
+    int *p;
+    p = &val[2];
+
     printf("<< Pointers >>\n");
+    printf("Digite o novo valor: ");
+    scanf("%d",p);
+
+    printf("Nova sequencia: ");
+    for(int i=0;i<5;i++){
+        printf("%d ",val[i]);
+    }
 
     return 0;
 }

@@ -2,18 +2,74 @@
 
 int main(){
     printf("<< Pointers >>\n");
+    int val[5] = {2,4,5,8,10};
     int a = 40; // cria uma variável do tipo inteiro, chamada a, e inicializa 
                 // com valor 40
+    int *pval;
     int *p; // cria uma variável do tipo ponteiro para inteiro, chamada p, e o 
             //conteúdo inicial é lixo
     p = &a; // faz p receber o endereço de a. Dizemos que p aponta para a
-
+    pval = &val[4];
     //(a)
+    printf("Endereco da varialvel a: %d\n",&a);
+    printf("Endereco da variavel a com ponteiro: %d\n",p);
 
     //(b)
+    printf("Digite um novo valor para a variavel a: ");
+    scanf("%d",p);
+    printf("Valor de a: %d\n",a);
 
     //(c)
+    printf("Digite o novo valor para a ultima posicao de val: ");
+    scanf("%d",pval);   
+    printf("Nova sequencia de val: ");
+    for(int i=0;i<5;i++){
+        printf("%d ",val[i]);
+    }
 
+    //(d)
+    //(feito)
+
+    //(e)
+    printf("\nValores de val usando Aritmetica de Ponteiro: ");
+    for(int i=0;i<5;i++){
+        printf("%d ",*pval); //pega o contedo do ultimo valor de val.
+        pval = pval - 1; //subtrai 1 so conteudo do poteiro para percorrer o vetor val do fim ao comeco.
+    }
+
+/*
+    Ao final da execucao temos: 
++----------+----------------+---------------+------+--+
+|     5    |        2       |     val[0]    |  int |  |
++----------+----------------+---------------+------+--+
+|     6    |        4       |     val[1]    |      |  |
++----------+----------------+---------------+------+--+
+|     7    |        5       |     val[2]    |      |  |
++----------+----------------+---------------+------+--+
+|     8    |        8       |     val[3]    |      |  |
++----------+----------------+---------------+------+--+
+|     9    |        20      |     val[4]    |      |  |
++----------+----------------+---------------+------+--+
+|    10    |        5       |      pval     |*int  |  | <- Apos o fim do loop nao acontece mais alteracao no conteudo de pval, portanto permanece com endereco da primeira posicao de val.
++----------+----------------+---------------+------+--+
+|    11    |                |               |      |  |
++----------+----------------+---------------+------+--+
+|    12    |                |               |      |  |
++----------+----------------+---------------+------+--+
+|    13    |                |               |      |  |
++----------+----------------+---------------+------+--+
+
+*/
+    
+    //(f)
+    pval = &val[0];//Para comecar no val[0].
+    printf("\nNovos valores para val: ");
+    for(int i=0;i<5;i++){
+        *pval -= 1;
+        printf("%d ",*pval);
+        pval++; 
+    }
+    
     return 0;
 }
 
@@ -40,7 +96,7 @@ Neste exemplo, dizemos que “p aponta para a” ou “p referencia a”. Faça
 +----------+----------------+---------------+------+--+
 | 0 / NULL |   indefinido   |      ----     | ---- |  |
 +----------+----------------+---------------+------+--+
-|     1    |                |               |      |  |
+|     1    |      40        |      a        | int  |  |
 +----------+----------------+---------------+------+--+
 |     2    |                |               |      |  |
 +----------+----------------+---------------+------+--+
@@ -48,17 +104,17 @@ Neste exemplo, dizemos que “p aponta para a” ou “p referencia a”. Faça
 +----------+----------------+---------------+------+--+
 |     4    |                |               |      |  |
 +----------+----------------+---------------+------+--+
-|     5    |                |               |      |  |
+|     5    |        2       |     val[0]    | int  |  |
 +----------+----------------+---------------+------+--+
-|     6    |                |               |      |  |
+|     6    |        4       |     val[1]    |      |  |
 +----------+----------------+---------------+------+--+
-|     7    |                |               |      |  |
+|     7    |        5       |     val[2]    |      |  |
 +----------+----------------+---------------+------+--+
-|     8    |                |               |      |  |
+|     8    |        8       |     val[3]    |      |  |
 +----------+----------------+---------------+------+--+
-|     9    |                |               |      |  |
+|     9    |        20      |     val[4]    |      |  |
 +----------+----------------+---------------+------+--+
-|    10    |                |               |      |  |
+|    10    |        9       |      pval     |*int  |  |
 +----------+----------------+---------------+------+--+
 |    11    |                |               |      |  |
 +----------+----------------+---------------+------+--+
@@ -66,7 +122,7 @@ Neste exemplo, dizemos que “p aponta para a” ou “p referencia a”. Faça
 +----------+----------------+---------------+------+--+
 |    13    |                |               |      |  |
 +----------+----------------+---------------+------+--+
-|    14    |                |               |      |  |
+|    14    |        1       |      p        | *int |  |
 +----------+----------------+---------------+------+--+
 |    15    |                |               |      |  |
 +----------+----------------+---------------+------+--+
