@@ -1,7 +1,74 @@
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+struct aluno{
+    int matricula;
+    char nome[10];
+    int nota[3];
+    int faltas;
+    float media;
+};
 
 int main(){
-    printf("<<  >>\n");
+    struct aluno aluno[3];
+    int maior,menor_media,maior_media=0,maior_nota=0;
+    char nome_auxiliar[30],nome_auxiliar2[30],nome_auxiliar3[30];
+
+    for(int i=0; i<3; i++){
+        printf("Entre com os dados do %dº aluno: ",i+1);
+        printf("Matricula: ");
+        scanf("%d",&aluno[i].matricula);
+        printf("Nome: ");
+        fgets(aluno[i].nome,10,stdin);
+        printf("Nota da prova 1: ");
+        scanf("%d",&aluno[i].nota[0]);
+        printf("Nota da prova 2: ");
+        scanf("%d",&aluno[i].nota[1]);
+        printf("Nota da prova 3: ");
+        scanf("%d",&aluno[i].nota[2]);
+        printf("Numero de faltas: ");
+        scanf("%d",&aluno[i].faltas);
+        printf("\n");
+    }
+
+
+    menor_media = aluno[0].media;
+    for (int i = 0; i < 3; i++)
+    {
+        if(aluno[i].nota[0]>maior_nota){
+            maior_nota=aluno[i].nota[0];
+            strcpy(nome_auxiliar,aluno[i].nome);
+        }
+        if (aluno[i].media>maior_media)
+        {
+            maior_media=aluno[i].media;
+            strcpy(nome_auxiliar2,aluno[i].nome);
+        }
+        if (aluno[i].media<menor_media)
+        {
+            menor_media=aluno[i].media;
+            strcpy(nome_auxiliar3,aluno[i].nome);
+        }
+        
+    }
+
+    printf("\n\nO aluno com a maior nota é o %s com %.1d",nome_auxiliar,maior_nota);
+    printf("\n\nO aluno com a maior media é o %s com %.1d",nome_auxiliar2,maior_media);
+    printf("\n\nO aluno com a menor media é o %s com %.1d",nome_auxiliar3,menor_media);
+
+    for (int i = 0; i < 3; i++)
+    {
+        if (aluno[i].faltas>18)
+        {
+            printf("\nAluno %s reprovado por falta",aluno[i].nome);   
+        }else if (aluno[i].media<60)
+        {
+            printf("\nAluno %s reprovado por nota",aluno[i].nome); 
+        }
+        
+        
+    }
 
     return 0;
 }
