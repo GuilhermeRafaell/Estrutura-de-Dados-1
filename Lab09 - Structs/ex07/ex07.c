@@ -1,9 +1,60 @@
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+struct eletrodomesticos{
+  char nome[16];
+  float potencia,tempoativo;
+};
 
 int main(){
-    printf("<<  >>\n");
+  float aux,consumo=0,consumototal=0;
+  int tempo;
 
-    return 0;
+  struct eletrodomesticos nro[5]; //nro corresponde a quantidade de eletrodomesticos
+
+  for(int i=0; i<5; i++){
+    printf("Informe os dados do %do eletrodomestico:\n",i+1);
+    printf("Nome: ");
+    fgets(nro[i].nome,16,stdin);
+    printf("Potencia: ");
+    scanf("%f",&nro[i].potencia);fflush(stdin);
+    printf("Tempo ativo por dia: ");
+    scanf("%f",&nro[i].tempoativo);fflush(stdin);
+    printf("\n");
+  }
+
+  printf("Informe um valor de tempo (em dia): ");
+  scanf("%d",&tempo);
+  
+  for(int i=0; i<5; i++){
+    consumototal += (nro[i].potencia * nro[i].tempoativo);
+  }
+
+  printf("Consumo total : %.0f KW",consumototal*tempo);
+  printf("\nConsumo relativo:\n");
+
+  for (int i = 0; i < 5; i++){
+      consumo = nro[i].potencia * nro[i].tempoativo;
+      aux = consumo/consumototal;
+      printf("%s: %.1f%%\n", nro[i].nome, aux*100);
+  }
+
+    printf("Enderecos de Memoria: \n");
+    
+    printf("\nEndereço de tempo:              %u",&tempo);
+    printf("\nEndereço de consumo total:      %u",&consumototal);
+    printf("\nEndereço de consumo parcial:    %u",&consumo);
+    printf("\nEndereço da variavel auxiliar:  %u\n\n",&aux);
+
+    for (int i = 0; i < 5; i++){
+        printf("Enderecos %do eletrodomestico\n",i+1);
+        printf("Endereco Nome: %u\n",&nro[i].nome);
+        printf("Endereco Potencia: %u\n",&nro[i].potencia);
+        printf("Endereco Tempo Ativo: %u\n",&nro[i].potencia);
+    }
+
+  return 0;
 }
 
 /*
