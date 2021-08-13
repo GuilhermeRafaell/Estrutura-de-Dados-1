@@ -2,8 +2,28 @@
 //lembre-se de incluir as bibliotecas adequadas
 
 int main() {
+    int *p;
+    int n;
+    
+    printf("Digite o tamanho do vetor: ");
+    scanf("%d",&n);
+    p = (int *)malloc(n*sizeof(int));
+    if(p == NULL){
+        printf("Erro: Memoria Insuficiente!\n");
+        system("pause");
+        exit(1);
+    }
     printf("<< Guarda inteiros >>\n");
     // Insira o seu código aqui.
+    for(int i=0; i<n; i++){
+        printf("Digite o numero(%d): ",i+1);
+        scanf("%d",&p[i]);
+    }
+    printf("\n");
+    for(int i=0; i<n; i++){
+        printf("O numero(%d) eh %d.\n",i+1, p[i]);
+    }
+    free(p);
 }
 
 /*

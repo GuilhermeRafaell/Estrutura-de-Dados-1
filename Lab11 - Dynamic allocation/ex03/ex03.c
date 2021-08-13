@@ -1,10 +1,40 @@
 #include <stdio.h>
+#include <stdlib.h>
 //lembre-se de incluir as bibliotecas adequadas
 
 int main(){
-    printf("<< Par ou Impar >>\n");
+    int n,res,qtdpar=0, qtdimpar=0;
+    int *p;
 
-    return 0;
+    printf("<< Par ou Impar >>\n");
+    printf("Quantos inteiros serao lidos: ");
+    scanf("%d",&n);
+
+    p = (int *)malloc(sizeof(int));
+
+    if(p == NULL){
+        printf("Erro: Memoria Insuficiente!\n");
+        system("pause");
+        exit(1);
+    }
+    
+    for(int i=0; i<n; i++){
+        printf("%do inteiro: ",i+1);
+        scanf("%d",&p[i]);
+    }
+    for(int i=0; i<n; i++){
+        res = p[i]%2;
+        if(res == 0){
+            qtdpar++;
+        }else{
+            qtdimpar++;
+        }
+    }
+
+    printf("\nSao pares: %d dos %d inteiros lidos.\n",qtdpar,n);
+    printf("Sao impares: %d dos %d inteiros lidos.\n",qtdimpar,n);
+    return 0;;
+    free(p);
 }
 
 /*

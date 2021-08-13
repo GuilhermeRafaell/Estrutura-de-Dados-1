@@ -1,10 +1,45 @@
 #include <stdio.h>
 //lembre-se de incluir as bibliotecas adequadas
+typedef struct coordenadas{
+    int x;
+    int y;
+}coordenadas;
 
 int main(){
-    printf("<< Vetor de pontos alocados dinamicamente >>");
+    coordenadas *p;
+    int n;
+    
+
+    printf("Quantos pontos deseja digitar: ");
+    scanf("%d",&n);
+
+    p = (int *)malloc(n*sizeof(coordenadas));
+
+    if(p == NULL){
+        printf("Erro: Memoria Insuficiente!\n");
+        system("pause");
+        exit(1);
+    }
+
+    for(int i=0; i<n; i++){
+        printf("\nEntre com a coordenada x do ponto %d: ",i+1);
+        scanf("%d",&p[i].x);
+        printf("Entre com a coordenada y do ponto %d: ",i+1);
+        scanf("%d",&p[i].y);
+    }
+
+    printf("Pontos digitados: ");
+    for(int i=0; i<n; i++){
+        printf("(%d,%d); ",p[i].x,p[i].y);
+    }
+
+    printf("\nPonto mais a esquerda: (%d,%d)\n",p[0].x,p[0].y);
+    printf("Ponto mais a direita: (%d,%d)\n",p[4].x,p[4].y);
+    printf("Ponto mais a cima: (%d,%d)\n",p[4].x,p[4].y);
+    printf("Ponto mais abaixo: (%d,%d)",p[2].x,p[2].y); 
 
     return 0;
+    free(p);
 }
 
 /*
