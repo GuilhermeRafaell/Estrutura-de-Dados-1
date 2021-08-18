@@ -1,7 +1,33 @@
 #include <stdio.h>
 
+typedef struct ponto{
+    float x,y;
+}ponto;
+
+float calc_area(ponto p1, ponto p2){
+    float area;
+
+    area = (p2.x-p1.x) * (p1.y-p2.y);
+    return area;
+}
+
 int main(){
-    printf("<<  >>\n");
+    ponto p1,p2;
+    float area;
+    printf("<< Calculo de Area >>\n");
+
+    printf("Digite a coordenada x do ponto 1: ");
+    scanf("%f",&p1.x);
+    printf("Digite a coordenada y do ponto 1: ");
+    scanf("%f",&p1.y);
+    printf("Digite a coordenada x do ponto 2: ");
+    scanf("%f",&p2.x);
+    printf("Digite a coordenada y do ponto 2: ");
+    scanf("%f",&p2.y);
+
+    area = calc_area(p1,p2);
+
+    printf("\nA area do retangulo definido por (%.2f, %.2f) e (%.2f, %.2f) eh %.2f",p1.x, p1.y, p2.x, p2.y, area);
 
     return 0;
 }

@@ -1,7 +1,21 @@
 #include <stdio.h>
+#include <math.h>
 
+QuadradoPerfeito(int num){
+    int a;
+    a = sqrt(num);
+
+    if(pow(a,2) == num){
+        printf("O numero %d eh um quadrado perfeito\n",num);
+    }else{
+        printf("O numero %d nao eh um quadrado perfeito\n",num);       
+    }
+}
 int main(){
+    int n;
     printf("Digite o valor de n: ");
+    scanf("%d",&n);
+    QuadradoPerfeito(n);
 
     return 0;
 }

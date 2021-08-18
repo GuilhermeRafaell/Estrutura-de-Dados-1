@@ -1,7 +1,24 @@
 #include <stdio.h>
+#include <stdlib.h>
 
+DesenhaLinha(int a){
+    for(int i=0;i<a;i++){
+        printf("=");
+    }
+    return 0;
+}
 int main(){
-    printf("<<  >>\n");
+    int qtd,tamanho;
+
+    printf("Digite a quantidade de linhas a serem impressas: ");
+    scanf("%d",&qtd);
+    printf("Digite o tamanho da linha: ");
+    scanf("%d",&tamanho);
+
+    for(int i=0; i<qtd; i++){
+        DesenhaLinha(tamanho);
+        printf("\n");
+    }
 
     return 0;
 }

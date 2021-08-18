@@ -1,7 +1,38 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+Fatorial(int i){
+    int fat;
+    for(fat=1; i>1; i--){
+        fat = fat*i;
+    }
+    return fat;
+}
+
+Neperiano(float E){
+    int N = 10;
+    int i,j;
+    float fat;
+    E = 1.0;
+
+    for(i=1; i<=N; i++){
+        fat=1;
+        for(j=1; j<=i; j++){
+            fat = fat*j;
+        }
+        E = E + 1.0/fat;
+    }
+    
+    printf("O valor do numero neperiano eh: %.14f\n",E);
+    return 0;
+}
 
 int main(){
+    int n;
     printf("Digite o valor de n para aproximar o numero neperiano: ");
+    scanf("%d",&n);
+    
+    Neperiano(n);
 
     return 0;
 }

@@ -1,8 +1,27 @@
 #include <stdio.h>
 
+typedef struct ponto{
+        int x, y;
+}ponto;
+
+void multiplica_p(ponto *p,int c){
+    p->x = p->x * c; //(*p).x = (*p).x * c; (mesma coisa)
+    p->y = p->y * c; //(*p).y = (*p).y * c;
+}
+
 int main(){
+    ponto p1;
+    int c;
+
     printf("Digite o ponto: ");
+    scanf("%d",&p1.x);
+    scanf("%d",&p1.y);
     printf("Digite a constante: ");
+    scanf("%d",&c);
+
+    printf("Resultado: (%d,%d) * %d = ",p1.x, p1.y, c);
+    multiplica_p(&p1,c);
+    printf(" (%d,%d)\n", p1.x, p1.y);
 
     return 0;
 }

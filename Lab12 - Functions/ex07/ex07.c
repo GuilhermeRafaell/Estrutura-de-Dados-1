@@ -1,9 +1,19 @@
 #include <stdio.h>
 
 int main(){
-    printf("Digite o número A: ");
-    printf("Digite o número B: ");
+    int a,b,c;
 
+    printf("Digite o numero A: ");
+    scanf("%d",&a);
+    printf("Digite o numero B: ");
+    scanf("%d",&b);
+
+    c=a;
+    a=b;
+    b=c;
+
+    printf("O numero A eh: %d\n",a);
+    printf("O numero B eh: %d",b);
     return 0;
 }
 

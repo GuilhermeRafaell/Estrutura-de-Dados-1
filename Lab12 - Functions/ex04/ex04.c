@@ -1,8 +1,29 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+Elevado(int a, int b){
+    int aux=1,c;
+
+    c=b;
+
+    while(b>0){
+        aux = aux*a;
+        b--;
+    }
+    printf("O valor de %d elevado a %d eh %d\n",a,c,aux);
+
+    return 0;
+}
 
 int main(){
+    int x,n;
+
     printf("Digite o valor de x: ");
+    scanf("%d",&x);
     printf("Digite o valor de n: ");
+    scanf("%d",&n);
+
+    Elevado(x,n);
 
     return 0;
 }
