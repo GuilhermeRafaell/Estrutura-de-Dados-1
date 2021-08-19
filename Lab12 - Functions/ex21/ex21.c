@@ -1,9 +1,42 @@
 #include <stdio.h>
 
-int main(){
-    printf("Digite o tamanho do vetor: ");
-    printf("Digite o valor do escalar: ");
+void multvet(int *vet, int n, int num){
+    for(int i=0; i<n; i++){
+        vet[i] = vet[i] * num;
+    }
+}
 
+int main(){
+    int n,i,num;
+    int *vet;
+
+    printf("Digite o tamanho do vetor: ");
+    scanf("%d",&n);
+
+    vet = (int *)malloc(n*sizeof(int));
+
+    for(i=0; i<n; i++){
+        printf("Digite p valor %d: ",i+1);
+        scanf("%d",&vet[i]);
+    }
+    printf("Digite o valor do escalar: ");
+    scanf("%d",&num);
+
+    printf("\nO vetor de origem eh: ");
+    for(i=0; i<n-1; i++){
+        printf(" %d,",vet[i]);
+    }
+    printf(" %d",vet[i]);
+
+    multvet(vet, n, num);
+
+    printf("\nO vetor final eh: ");
+    for(i=0; i<n-1; i++){
+        printf(" %d,",vet[i]);
+    }
+    printf(" %d",vet[i]);
+
+    free(vet);
     return 0;
 }
 
