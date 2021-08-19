@@ -1,7 +1,37 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+typedef struct ponto{
+    int x,y;
+}ponto;
+
+ponto *aloca_ponto(int n){
+    ponto *p;
+
+    p = (ponto *)calloc(n,sizeof(ponto));
+
+    return p;
+}
 
 int main(){
-    printf("Digite quantos pontos(x,y) você deseja: ");
+    int i,n;
+    ponto *p1;
+
+    printf("Digite quantos pontos(x,y) voce deseja: ");
+    scanf("%d",&n);
+
+    p1 = aloca_ponto(n);
+
+    printf("(%d,%d)", p1[0].x, p1[0].y);
+    if(n>1){
+        printf(" ,");
+        for(i=1; i<n-1; i++){
+            printf(" (%d,%d)", p1[i].x, p1[i].y);
+        }
+        printf(" (%d,%d)",p1[i].x, p1[i].y);
+    }
+
+    free(p1);
 
     return 0;
 }

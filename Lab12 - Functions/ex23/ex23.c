@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <math.h>
+
 void imprime_vet_int(int *veti, int n){
     for(int i=0; i<n; i++){
         printf(" %d ",veti[i]);
@@ -49,7 +51,7 @@ void multvet(int *vet, int n, int num){
 }
 
 int main(){
-    int i, *vet, *vet2, n, qtd, maior, menor, num;
+    int i, *vet, *vet2, *vetaux, n, qtd, maior, menor, num;
 
     printf("Entre com o tamanho do vetor: ");
     scanf("%d",&n);
@@ -73,20 +75,23 @@ int main(){
     qtd = negativos(vet, n);
     printf("\nNumeros negativos: %d",qtd);
 
-    abs_vet(vet, n);
+    vetaux = (int *)malloc(n*sizeof(int));
+    copiarvet(vet, vetaux, n);//Utilizo vetaux para mostar vet com a funcao abs().
+    abs_vet(vetaux, n);
     printf("\nVetor absoluto:");
-    imprime_vet_int(vet, n);
+    imprime_vet_int(vetaux, n);
 
     printf("\n");
-    printf("Copiando para outro vetor (alocado dinamicamente)\n");
-    printf("Vetor original:");
+    printf("\nCopiando para outro vetor (alocado dinamicamente)\n");
+    printf("\nVetor original:");
     imprime_vet_int(vet, n);
 
     vet2 = (int *)malloc(n*sizeof(int));
     copiarvet(vet, vet2, n);
     printf("\nVetor copiado: ");
     imprime_vet_int(vet2 ,n);
-
+    
+    printf("\n");
     printf("\nEntre com o valor escalar para multiplicar o vetor original: ");
     scanf("%d",&num);
 
@@ -98,7 +103,8 @@ int main(){
 
     free(vet);
     free(vet2);
-
+    free(vetaux);
+    
     return 0;
 }
 
