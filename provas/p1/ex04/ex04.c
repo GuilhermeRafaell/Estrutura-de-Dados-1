@@ -2,11 +2,37 @@
 #include <stdlib.h>
 #include <math.h>
 
-int main(){
+typedef struct ponto{
+    int x,y;
+}ponto;
 
+typedef struct circulo{
+    int r;
+    ponto *p;
+}circulo;
+
+int main(){
+    circulo c;
+    ponto p;
+    int raio;
+    float area,distancia;
+
+    //Atribuindo valores circulo e seu centro
+    p.x = 3;
+    p.y = 5;
+    c.r = 2;
    // Ex04: Um círculo pode ser definido com duas informações
    // - um ponto central; que é sua coordenada x,y no espaço cartesiano
    // - um raio; que é a distância da borda ao centro
+    printf("Circulo: \n");
+    printf("Centro: (%d,%d)\n",p.x,p.y);
+    printf("Raio: %d\n",c.r);
+
+    area = 3.14*pow(c.r,2);
+    printf("Area: %.2f\n",area);
+
+    distancia = sqrt((p.x*p.x) + (p.y*p.y));
+    printf("Distancia: %.1f\n",floor(distancia));
 
    // Crie uma estrura Circulo. Para isso, crie uma estrutura chamada Ponto, que armazenará as
    // coordenadas reais (x,y) de um ponto. Em seguida, crie uma estrutura chamada Circulo,

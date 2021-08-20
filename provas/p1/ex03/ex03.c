@@ -27,16 +27,64 @@
 +-------------------+-----------------------------------------------+----------------+
 
 */
+float calc_lucro(float pcompra, float pvenda){
+    float lucro,porcentual;
+
+    lucro = pcompra - pvenda;
+
+    porcentual = (lucro/pcompra)*100;
+
+    if(lucro <= 0){
+        return -1;
+    }
+    else if(porcentual <= 0){
+        return 1;
+    }
+    else if(porcentual > 0 && porcentual <= 20){
+        return 2;
+    }
+    else if(porcentual > 20 && porcentual <= 40){
+        return 3;
+    }
+    else if(porcentual > 40){
+        return 4;
+    }
+}
 
 int main(){
-
+    float pcompra,pvenda,lucro,porcentual;
+    int aux;
    // Ex03: utilizando a função de cálculo de lucro, leia o preço de compra e venda
    // e mostre o percentual de lucro ou prejuízo e a classificação de acordo com
    // a tabela acima. 
-   printf("Digite o preco de compra:");
+    printf("Digite o preco de compra: ");
+    scanf("%f",&pcompra);
+    printf("Digite o preco de venda: ");
+    scanf("%f",&pvenda);
 
-   printf("Digite o preco de venda:");
-   
+    lucro = pcompra - pvenda;
+
+    porcentual = (lucro/pcompra)*100;
+
+    aux = calc_lucro(pcompra,pvenda);
+
+    printf("\n");
+    if(aux == -1){
+        printf("Valor Invalido, Nenhum Lucro.");
+    }
+    else if(aux == 1){
+        printf("Prejuizo de %.0f%%",porcentual);
+    }
+    else if(aux == 2){
+        printf("Lucro pequeno de %.0f%%",porcentual);
+    }
+    else if(aux == 3){
+        printf("Lucro bom de %.0f%%",porcentual);
+    }
+    else if(aux == 4){
+        printf("Lucro alto de %.0f%%",porcentual);
+    }
+
    // exemplo de saída:
    // Preço de compra: 10; Preco de venda:11; Lucro Pequeno de 10%
    // Preço de compra: 10; Preco de venda: 9; Prejuízo de 10%
