@@ -58,6 +58,7 @@ int main(){
    // Dica: para testar, crie um vetor estático preenchido com alguns valores (opcional)
    printf("Livro usado mais antigo possui indice: %d",aux);
 
-  
+    free(p);
+
     return 0;
 }
