@@ -3,7 +3,7 @@
 #include "aluno.h"
 
 
-//Recebe como parametros ponteiro de aluno ,seu nome ,nro de matricula e C.R.A.
+//Recebe como parametros ponteiro de aluno e nro de matricula.
 //Cria um novo aluno na heap ,retorna 0 pra sucesso e -1 pra erro.
 int matricula_novo_aluno(aluno *p,int matricula){
 
