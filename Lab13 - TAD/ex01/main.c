@@ -3,7 +3,7 @@
 
 int main(){
     aluno p[2];
-    aluno *a;
+
 
     for(int i=0; i<2; i++){
         printf("\nInforme o nome, o numero de matricula e o C.R.A do aluno %d:\n",i+1);
@@ -16,7 +16,7 @@ int main(){
     }
 
     printf("\nInserindo novo aluno");
-    if(matricula_novo_aluno(a, 213) == 0){
+    if(matricula_novo_aluno(&p[1], 213) == 0){
         printf("\n\nAluno matriculado com sucesso.");
     }else{
         printf("\n\nErro: Aluno nao matriculado.");

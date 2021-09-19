@@ -13,6 +13,7 @@
 // Definir as estruturas necessárias aqui:
 typedef struct livro{
     char nome[10], indicacao[10];
+    // check:<<<erro: e1.01a: Novo/Usado deve ser booleano (no caso, int) ; Pode-se usar um char, mas com isso exige-se sempre uma comparação de valores>>>>
     float preco;
     int ano;
 }livro;
