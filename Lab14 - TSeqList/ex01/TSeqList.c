@@ -23,13 +23,21 @@ Lista *cria_lista()
     }
     return li;
 }
+
 //Libera a lista
 //dado a lista
 //Retorno -1 para erro e 0 para sucesso
 void libera_lista(Lista *li)
 {
-    free(li);
+    if(li == NULL)
+        return -1;
+
+    else{
+        free(li);
+        return 0;
+    }
 }
+
 //Consulta os dados de um aluno pela posicao
 //dado a lista, a posicao e um ponteiro para aluno para receber as informacoes
 //Retorno -1 para erro e 0 para sucesso
@@ -195,7 +203,7 @@ int lista_vazia(Lista *li)
 //Informa se a lista esta vazia
 //dado a lista
 //Retorno -1 para erro, 1 para lista vazia e 0 caso nao esteja
-void imprime_lista(Lista *li)
+int imprime_lista(Lista *li)
 {
     if (li == NULL)
         return -1;
