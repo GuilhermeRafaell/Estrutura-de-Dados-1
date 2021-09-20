@@ -27,6 +27,8 @@
 +-------------------+-----------------------------------------------+----------------+
 
 */
+// check:<<<erro: e3.1b: A função deve calcular e retornar por referência a porcentagem>>>>
+// check:<<<erro: e3.2: Faltou testar os valores inválidos dentro da função / teste errado / faltou alguns testes>>>>
 float calc_lucro(float pcompra, float pvenda){
     float lucro,porcentual;
 
@@ -35,7 +37,7 @@ float calc_lucro(float pcompra, float pvenda){
     porcentual = (lucro/pcompra)*100;
 
     if(lucro <= 0){
-        return -1;
+        return -1;// check:<<<erro: prejuízo retorna 1 e não -1>>>>
     }
     else if(porcentual <= 0){
         return 1;
@@ -49,6 +51,7 @@ float calc_lucro(float pcompra, float pvenda){
     else if(porcentual > 40){
         return 4;
     }
+    // check:<<<comentário: e3.4: o último teste é desnecessário E/OU alguns testes no IF são desnecessários>>>>    
 }
 
 int main(){
@@ -67,6 +70,9 @@ int main(){
     porcentual = (lucro/pcompra)*100;
 
     aux = calc_lucro(pcompra,pvenda);
+
+// check:<<<erro: e3.6: e3.6: Chamada de função com erros (parâmetro de entrada e/ou saída) ou faltando a passagem por referência>>>>
+
 
     printf("\n");
     if(aux == -1){

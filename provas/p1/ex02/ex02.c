@@ -12,12 +12,16 @@ typedef struct livro{
 // - Entrada: todos os livros cadastrados 
 // - Saída: índice do vetor indicando o livro usado mais antigo
 // (se houver empate pode ser retornado qualquer um dos livros)
+// check:<<<erro: e2.5: a busca deve considerar somente os livros usados>>>>
+// check:<<<erro: e2.5a: Inicialização errada (deveria ser o maior valor possível) ou o ano do primeiro livro mais antigo>>>>
+// check:<<<erro: e2.6d: se todos os livros são novos o programa vai retornar errado>>>>
+
 int mais_antigo(livro *p, int n){//Parametros: todos Livros cadastrados e sua qtd
     int antigo = p[0].ano;
     int indice_antigo;
     for(int i=0;i<n; i++)
     {
-        if(p[i].indicacao == "usado")
+        if(p[i].indicacao == "usado")// check:<<<erro: comparação inválida em C>>>>
         {
             if(antigo > p[i].ano)
             {
@@ -57,7 +61,7 @@ int main(){
 
    // Dica: para testar, crie um vetor estático preenchido com alguns valores (opcional)
    printf("Livro usado mais antigo possui indice: %d",aux);
-
+// check:<<<erro: e2.2a: Dados incompletos no programa principal>>>>
     free(p);
 
     return 0;

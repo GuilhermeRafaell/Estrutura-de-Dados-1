@@ -2,13 +2,16 @@
 #include <stdlib.h>
 #include <math.h>
 
+// check:<<<erro: e4.1: Definição da estrutura está errada>>>>
+// check:<<<erro: use valores reais>>>>
+
 typedef struct ponto{
     int x,y;
 }ponto;
 
 typedef struct circulo{
     int r;
-    ponto *p;
+    ponto *p;// check:<<<erro: ponteiro?>>>>
 }circulo;
 
 int main(){
