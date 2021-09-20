@@ -18,5 +18,5 @@ int remove_lista_incio(Lista *li);
 int remove_lista_final(Lista *li);
 int lista_cheia(Lista *li);
 int lista_vazia(Lista *li);
-void imprime_lista(Lista *li);
+int imprime_lista(Lista *li);
 int remove_lista_otimizado(Lista *li, int mat);

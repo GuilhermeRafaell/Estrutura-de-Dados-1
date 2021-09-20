@@ -14,7 +14,7 @@ struct lista
 
 //Cria a lista
 //dado o numero de alunos
-//Retorno ponteriro para a lista
+//Retorno ponteiro para a lista
 Lista *cria_lista(int n)
 {
     Lista *li;
@@ -31,7 +31,7 @@ Lista *cria_lista(int n)
     }
 }
 
-//Aumenta o tamnho da lista adicionando o tamanho inicial a cada execucao
+//Aumenta o tamanho da lista adicionando o tamanho inicial a cada execucao
 //dado a lista
 //Retorno -1 para erro e 0 para sucesso
 int aumenta_tam_lista(Lista *li)
