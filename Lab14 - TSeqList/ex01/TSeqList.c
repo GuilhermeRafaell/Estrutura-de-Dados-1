@@ -152,7 +152,7 @@ int remove_lista(Lista *li, int mat)
 //Remove um aluno do inicio da lista
 //dado a lista
 //Retorno -1 para erro e 0 para sucesso
-int remove_lista_incio(Lista *li)
+int remove_lista_inicio(Lista *li)
 {
     if (li == NULL)
         return -1;

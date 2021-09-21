@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <stdio.h>
 /*
  3) Considerando o TAD Matriz implementado em aula², crie uma nova 
 função que permite aumentar o tamanho da matriz (mat2d_increase_size).
@@ -22,13 +24,34 @@ mat2d_increase_size(mat,3,3)
 // |4 5 0|
 // |0 0 0|
 
+*/
 
-
-²struct TMat2D
- {
+struct TMat2D
+{
   int nrows; // número de linhas
   int ncolumns; // número de colunas
   double *data; // ponteiro para os dados da matriz
- };
+};
 
-*/
+typedef struct TMat2D TMat2D;
+
+
+
+int mat2D_increase_size(TMat2D *mat, int i, int j){
+    int pos;
+    double val = 0;
+
+    mat->data = realloc(mat, i * j * sizeof(double));
+
+    if(mat->data != NULL)
+    {
+        mat->ncolumns = j;
+        mat->nrows = i;
+        pos = j * mat->nrows + i;
+        
+        for(int k=pos+1; k< mat->nrows * mat->ncolumns; k++)
+            mat->data[k]=val;
+        
+        return 0;
+    }
+}

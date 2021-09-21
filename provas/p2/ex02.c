@@ -1,3 +1,6 @@
+#define MAX 100
+#include <stdlib.h>
+#include <stdio.h>
 /*
 2) Considerando o TAD ListaSequencial¹, implemente uma nova função
 chamada remove_intervalo_lista, que retira da lista todos os elementos
@@ -12,3 +15,45 @@ Exemplo de chamada da função:
 remove_intervalo_lista(lista,5,9)
 
 */
+
+typedef struct lista Lista;
+
+struct aluno{
+    int matricula;
+    char nome[30];
+    float n1,n2,n3;
+};
+
+struct lista
+{
+    int qtd;
+    struct aluno dados[MAX];
+};
+
+int remove_intervalo_lista(Lista *li, int pos1, int pos2){
+    int cont;
+    if(li == NULL)
+        return -1;
+
+    if(li->qtd == 0)
+        return -1;
+
+    if(pos1 <= 0 || pos1 > li->qtd || pos2 <= 0 || pos2 > li->qtd)
+        return -1;
+
+    int k, i = pos1-1;
+    while(i <= pos2-1)
+    {
+        i++;
+
+    if(i == li->qtd)
+        return 0;
+    
+    for (k = i; k < pos2-1; k++)
+        li->dados[k] = li->dados[k + 1];
+
+    cont = pos2-pos1+1;
+    li->qtd -= cont;
+    return 0;
+    }
+}
