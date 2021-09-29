@@ -30,4 +30,8 @@ int list_back(TLinkedList *list, struct aluno *al);
 int list_get_pos(TLinkedList *list, int mat, int *pos);
 int list_print(TLinkedList *list);
 
+int list_insert_sorted(TLinkedList *list, struct aluno al);
+
+
+int list_print(TLinkedList *list);
 
