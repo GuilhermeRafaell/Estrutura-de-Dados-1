@@ -76,6 +76,41 @@ int list_push_front(TDLinkedList *list, struct aluno al){
     }
 }
 
+int list_push_back(TDLinkedList *list, struct aluno al){
+    if(list == NULL)
+        return INVALID_NULL_POINTER;
+
+    else{
+        DLNode *node;
+        node = malloc(sizeof(TDLinkedList));
+
+        if(node == NULL)
+            return OUT_OF_MEMORY;
+
+        else{
+            node->data = al;
+            node->next = NULL;
+
+            //Caso de lista vazia
+            if(list->begin == NULL){
+                list->begin = node;
+                list->end = node;
+                node->prev = NULL;
+                list->size++;
+            }
+            //Caso padrao
+            else{
+                list->end->next = node;
+                node->prev = list->end;
+                list->end = node;
+                list->size++;
+            }
+
+            return SUCCESS;
+        }
+    }
+}
+
 int list_insert(TDLinkedList *list, int pos, struct aluno al){
     if(list == NULL)
         return INVALID_NULL_POINTER;
@@ -125,6 +160,229 @@ int list_insert(TDLinkedList *list, int pos, struct aluno al){
                 list->size++;
             }
             return SUCCESS;
+        }
+    }
+}
+
+int list_size(TDLinkedList *list){
+    if(list == NULL)
+        return INVALID_NULL_POINTER;
+    
+    else{
+        return list->size;
+    }
+}
+
+int list_pop_front(TDLinkedList *list){
+    if(list == NULL)
+        return INVALID_NULL_POINTER;
+
+    else{
+        //Caso de lista vazia
+        if(list->begin == NULL)
+            return ELEM_NOT_FOUND;
+
+        //Caso padrao
+        else{
+            DLNode *aux;
+            aux = list->begin;
+
+            list->begin = list->begin->next;
+            list->begin->prev = NULL;
+            free(aux);
+            list->size--;
+
+            return SUCCESS;
+        }
+    }
+}
+
+int list_pop_back(TDLinkedList *list){
+    if(list == NULL)
+        return INVALID_NULL_POINTER;
+
+    else{
+        //Caso de lista vazia
+        if(list->begin == NULL)
+            return ELEM_NOT_FOUND;
+
+        //Caso padrao
+        else{
+            DLNode *aux;
+            aux = list->end;
+
+            list->end = list->end->prev;
+            list->end->next = NULL;
+            free(aux);
+            list->size--;
+
+            return SUCCESS;
+        }
+    }
+}
+
+int list_erase(TDLinkedList *list, int pos){
+    if(list == NULL)
+        return INVALID_NULL_POINTER;
+
+    else{
+        DLNode *aux;
+        int contador = 1;
+
+        //Caso seja a primeira posicao
+        if(pos == 1){
+            list_pop_front(list);
+        }
+        //Caso seja a ultima posicao
+        else if(pos == list->size){
+            list_pop_back(list);
+        }
+        //Caso padrao
+        else{
+            aux = list->begin;
+            
+            while(aux != NULL && pos != contador){
+                aux = aux->next;
+                contador++;
+            }
+
+            if(aux == NULL)
+                return ELEM_NOT_FOUND;
+
+            else{
+                aux->prev->next = aux->next;
+                aux->next->prev = aux->prev;
+                free(aux);
+                list->size--;
+            }
+        }
+        return SUCCESS;
+    }
+}
+
+int list_find_pos(TDLinkedList *list, int pos, struct aluno *al){
+    if(list == NULL)
+        return INVALID_NULL_POINTER;
+
+    else{
+        //Caso de lista vazia
+        if(list->begin == NULL)
+            return ELEM_NOT_FOUND;
+
+        //Caso padrao
+        else{
+            DLNode *aux;
+            int contador = 1;
+            aux = list->begin;
+
+            while(aux != NULL && contador != pos){
+                aux = aux->next;
+                contador++;
+            }
+            
+            if(aux == NULL)
+                return ELEM_NOT_FOUND;
+
+            else{
+                *al = aux->data;
+                return SUCCESS;
+            }
+        }
+    }
+}
+
+
+int list_find_mat(TDLinkedList *list, int mat, struct aluno *al){
+    if(list == NULL)
+        return INVALID_NULL_POINTER;
+
+    else{
+        //Caso de lista vazia
+        if(list->begin == NULL)
+            return ELEM_NOT_FOUND;
+
+        //Caso padrao
+        else{
+            DLNode *aux;
+            aux = list->begin;
+
+            while(aux != NULL && aux->data.matricula != mat){
+                aux = aux->next;
+            }
+
+            if(aux == NULL)
+                return ELEM_NOT_FOUND;
+
+            else{
+                *al = aux->data;
+                return SUCCESS;
+            }
+        }
+    }
+}
+
+int list_front(TDLinkedList *list, struct aluno *al){
+    if(list == NULL)
+        return INVALID_NULL_POINTER;
+
+    else{
+        //Caso de lista vazia
+        if(list->begin == NULL)
+            return ELEM_NOT_FOUND;
+
+        //Caso padrao
+        else{
+            *al = list->begin->data;
+            return SUCCESS;
+        }
+    }
+}
+
+int list_back(TDLinkedList *list, struct aluno *al){
+    if(list == NULL)
+        return INVALID_NULL_POINTER;
+
+    else{
+        //Caso de lista vazia
+        if(list->begin == NULL)
+            return ELEM_NOT_FOUND;
+
+        //Caso padrao
+        else{
+            *al = list->end->data;
+            return SUCCESS;
+        }
+    }
+}
+
+int list_get_pos(TDLinkedList *list, int mat, int *pos){
+    if(list == NULL)    
+        return INVALID_NULL_POINTER;
+
+    else{
+        //Caso de lista vazia
+        if(list->begin == NULL)
+            return  ELEM_NOT_FOUND;
+        
+        //Caso padrao
+        else{
+            DLNode *aux;
+            aux = list->begin;
+            int contador = 1;
+
+            while(aux != NULL && aux->data.matricula != mat){
+                aux = aux->next;
+                contador++;
+            }
+
+            if(aux == NULL)
+                return ELEM_NOT_FOUND;
+
+            else{
+                *pos = contador;
+                return SUCCESS;
+            }
+            
         }
     }
 }
