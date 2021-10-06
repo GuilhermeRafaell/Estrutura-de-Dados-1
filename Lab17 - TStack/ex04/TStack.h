@@ -7,22 +7,18 @@
 #define OUT_OF_RANGE -3
 #define ELEM_NOT_FOUND -4
 
-#define SUCCESS 0;
-#define ERROR -1;
-
-#include "aluno.h"
-
 typedef struct TStack TStack;
 
-TStack *stack_create();
+TStack *stack_create(int n);
 int stack_free(TStack *st);
 
-int stack_push(TStack *st, struct aluno al);
+int stack_push(TStack *st, char c);
 int stack_pop(TStack *st);
-int stack_top(TStack *st, struct aluno *al);
+int stack_top(TStack *st, char *c);
 
 int stack_empty(TStack *st);
-int stack_full(TStack *st);
 int stack_print(TStack *st);
+
+int well_made(TStack *st);
 
 #endif

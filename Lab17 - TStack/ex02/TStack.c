@@ -1,13 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "TStack.h"
-#include "TSeqList.h"
+#include "TLinkedList.h"
 
 
-
-// é possível criar a lista
 struct TStack{
-    Lista *list;
+    TLinkedList *list;
 };
 
 
