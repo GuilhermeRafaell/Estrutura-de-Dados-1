@@ -48,8 +48,8 @@ int remove_intervalo_lista(Lista *li, int pos1, int pos2){
 
     if(i == li->qtd)
         return 0;
-    
-    for (k = i; k < pos2-1; k++)
+    // check:<<<erro: e2.3: Um só laço deve ser usado O(n). Da forma como está envolve deslocar os mesmos elementos várias vezes O(N²)>>>>
+    for (k = i; k < pos2-1; k++)// check:<<<erro: não deveria ir até qtd?>>>>
         li->dados[k] = li->dados[k + 1];
 
     cont = pos2-pos1+1;

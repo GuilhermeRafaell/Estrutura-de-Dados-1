@@ -35,7 +35,10 @@ struct TMat2D
 
 typedef struct TMat2D TMat2D;
 
-
+// check:<<<erro: e3.1: não fez os testes comparando o tamanho novo com o antiga para saber se o tamanho é maior OU fez o teste considerando somente o total de elementos>>>>
+// check:<<<erro: e3.2: O ideal é  utilizar uma outra variável para receber o que é retornado pelo realloc, pois se ele não funcionar os dados originais estarão preservados>>>>
+// check:<<<erro: e3.3: deve-se lembrar da representação linear da matriz na memória. Isso implica em reposicionar alguns elementos no vetor linear que estavam na matriz original>>>>
+// check:<<<erro: e3.5: Faltou atualizar o número de linhas e colunas da struct do tad >>>>
 
 int mat2D_increase_size(TMat2D *mat, int i, int j){
     int pos;
