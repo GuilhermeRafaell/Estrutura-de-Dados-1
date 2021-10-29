@@ -19,3 +19,63 @@ Concatenção Vetor 1, Vetor 2
 Vetor Concatenado = [ 1, 5, 2, 10, 30]
 
 */
+
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+void criaVetor(int v[], int v1[], int v2[]) {
+    for (int i = 0; i < 5; i++)
+        v[i] = v1[i];
+    
+    for (int i = 0; i < 5; i++) 
+        v[i + 5] = v2[i];
+}
+
+int concatena_vet(int *vet1, int tam1, int *vet2, int tam2, int **result, int **tamresult){
+    int i;
+    *result =(int *) malloc(tam1+tam2 * sizeof(int));
+    *tamresult = tam1+tam2;
+
+    if(result == NULL){
+        return -1;
+    }
+
+    else{    
+        for(i=0; i<tam1; i++){
+            (*result)[i] = vet1[i];
+        }
+
+        for(i=0; i<tam2; i++){    
+            (*result)[i + tam1] = vet2[i];
+        }
+    return 0;
+    }
+}
+
+int main(void){
+    int vet1[] = {1, 5, 2};
+    int vet2[] = {10, 30};
+    int *result;
+    int *tam;
+
+    printf("Vetor 1: ");
+    for(int i=0; i<3; i++){
+        printf("%d ",vet1[i]);
+    }
+
+    printf("\nVetor 2: ");
+    for(int i=0; i<2; i++){
+        printf("%d ",vet2[i]);
+    }
+
+    concatena_vet(vet1, 3, vet2, 2, &result, &tam);
+
+
+    printf("\n\nVetor Concatenado = ");
+    for(int i=0; i<5; i++){
+        printf("%d ",result[i]);
+    }
+    
+    free(result);
+}
