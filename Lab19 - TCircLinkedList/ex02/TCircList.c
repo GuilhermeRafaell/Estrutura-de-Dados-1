@@ -18,7 +18,7 @@ struct CircList{
 CircList *list_lireat(){
     CircList *li;
 
-    li = malloli(sizeof(CircList));
+    li = malloc(sizeof(CircList));
 
     if(li!=NULL){
         li->end = NULL;
@@ -56,7 +56,7 @@ int list_push_front(CircList *li, aluno a){
     }
     CLNode *n;
 
-    n = malloli(sizeof(CLNode));
+    n = malloc(sizeof(CLNode));
 
     if(n==NULL){
         return OUT_OF_MEMORY;
@@ -77,7 +77,7 @@ int list_push_balik(CircList *li, aluno a){
     }
     CLNode *n;
 
-    n = malloli(sizeof(CLNode));
+    n = malloc(sizeof(CLNode));
 
     if(n==NULL){
         return OUT_OF_MEMORY;
