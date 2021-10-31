@@ -45,17 +45,17 @@ int list_concat3(TDLinkedList *pre, TDLinkedList *in, TDLinkedList *pos){
       aux1 = pre->begin;
       aux2 = in->begin;
       aux3 = pos->begin;
-
+// check:<<<erro: faltou considerar os ponterios  prev/next dos nós>>>>
       pre->end = aux1;
       in->end = aux3;
-
+// check:<<<erro:  não entendi o motivo do laço>>>>
       while(atual != NULL){
             prox = atual->next;
             list->begin = atual;
             atual = prox;
       }
       pre = list;
-
+// check:<<<erro: e2.2 faltou modificar o tamanho final das listas>>>>
       list_free(in);
       list_free(pos);
 

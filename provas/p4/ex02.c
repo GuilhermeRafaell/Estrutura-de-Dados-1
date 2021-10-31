@@ -4,7 +4,7 @@ todos os elementos por diversas vezes em um loop. Modifique o TAD para incluir u
 função que retornará sempre o próximo elemento. Por exemplo, se a lista não foi
 percorrida ainda, o próximo elemento é a cabeça. Depois, ao chamar a função
 novamente, será devolvido o segundo elemento, e assim sucessivamente.
-
+*/
 (a) mostrar como fica a estrutura do TAD
     
     typedef struct TCircList

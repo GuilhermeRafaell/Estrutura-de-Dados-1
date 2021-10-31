@@ -456,7 +456,7 @@ int list_print_reverse(TDLinkedList *list){
 int list_erase_max_nota_n1(TDLinkedList *list){
     if(list == NULL)
         return INVALID_NULL_POINTER;
-
+// check:<<<erro: e1.1 não fez a busca pela maior nota de forma correta>>>>
     else{
         DLNode *atual, *prox;
         int contador = 0;
@@ -465,8 +465,8 @@ int list_erase_max_nota_n1(TDLinkedList *list){
         prox = atual->next;
 
         while(atual != NULL){
-            if(atual->data.n1 > prox->data.n1){
-                list_pop_front(list);
+            if(atual->data.n1 > prox->data.n1){ // check:<<<erro: pq comparar com a nota do próximo?>>>>
+                list_pop_front(list);// check:<<<erro: pq sempre pop front?>>>>
                 atual = prox;
                 prox = atual->next;
             } 

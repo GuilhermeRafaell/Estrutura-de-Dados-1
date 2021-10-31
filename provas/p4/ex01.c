@@ -25,16 +25,17 @@ Vetor Concatenado = [ 1, 5, 2, 10, 30]
 #include <stdlib.h>
 
 void criaVetor(int v[], int v1[], int v2[]) {
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 5; i++)// check:<<<erro: o que são esses tamanhos fixos?>>>>
+
         v[i] = v1[i];
     
     for (int i = 0; i < 5; i++) 
         v[i + 5] = v2[i];
 }
-
+// check:<<<erro: tamresult nao é ponteiro de ponteiro>>>>
 int concatena_vet(int *vet1, int tam1, int *vet2, int tam2, int **result, int **tamresult){
     int i;
-    *result =(int *) malloc(tam1+tam2 * sizeof(int));
+    *result =(int *) malloc(tam1+tam2 * sizeof(int));// check:<<<erro: coloque parênteses na soma>>>>
     *tamresult = tam1+tam2;
 
     if(result == NULL){
@@ -57,7 +58,7 @@ int main(void){
     int vet1[] = {1, 5, 2};
     int vet2[] = {10, 30};
     int *result;
-    int *tam;
+    int *tam;// check:<<<erro: tam deve ser estático e alocado. int tam  :: na hora de chamar &tam>>>>
 
     printf("Vetor 1: ");
     for(int i=0; i<3; i++){
@@ -73,7 +74,7 @@ int main(void){
 
 
     printf("\n\nVetor Concatenado = ");
-    for(int i=0; i<5; i++){
+    for(int i=0; i<5; i++){// check:<<<erro: em tam vem o tamanho>>>>
         printf("%d ",result[i]);
     }
     

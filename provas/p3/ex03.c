@@ -22,12 +22,13 @@ int main(){
     int num=4;// para nao incluir '/0'
     TStack *t, *n;
 
-    t = stack_create; // cria a pilha
+    t = stack_create; // cria a pilha// check:<<<erro: cade ()>>>>
     n = stack_create; // cria a pilha invertida
 
-    
+    // check:<<<erro: cade a string para leitura?>>>>
+
     for(int i=0; i<6; i++){
-        stack_push(t, t->data[i]); //insere na pilha
+        stack_push(t, t->data[i]); //insere na pilha// check:<<<erro: quem é t->data?>>>>
     }
 
     for(int i=0; i<6; i++){
