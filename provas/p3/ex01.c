@@ -41,28 +41,6 @@ struct TDLinkedList{
     int size;
 };
 
-int list_erase_max_nota_n1(TDLinkedList *list){
-    if(list == NULL)
-        return INVALID_NULL_POINTER;
-// check:<<<erro: e1.1 não fez a busca pela maior nota de forma correta>>>>
-    else{
-        DLNode *atual, *prox;
-        int contador = 0;
-
-        atual = list->begin;
-        prox = atual->next;
-
-        while(atual != NULL){
-            if(atual->data.n1 > prox->data.n1){ // check:<<<erro: pq comparar com a nota do próximo?>>>>
-                list_pop_front(list);// check:<<<erro: pq sempre pop front?>>>>
-                atual = prox;
-                prox = atual->next;
-            } 
-        }
-        return SUCCESS;
-    }
-}
-
 int list_erase_max_nota_n1(TDLinkedList *li){
     if(li == NULL)
         return INVALID_NULL_POINTER;
