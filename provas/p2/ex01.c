@@ -32,23 +32,26 @@ struct lista
     struct aluno dados[MAX];
 };
 
-
-
 int troca_pos_lista(Lista *li, int pos1, int pos2){
-   Lista *aux;
-   int pos;
-   //lista auxiliar criada para realizar metrodo de troca de valores referente a suas posicoes.
-// check:<<<erro: é para criar um ALUNO auxiliar, não uma LISTA>>>>
-   if(li == NULL || aux == NULL) // check:<<<erro: lista aux nao foi inicializada>>>>
+   if(li == NULL)
       return -1;
-// check:<<<erro: quem é 'pos'? valor é lixo inicialmente>>>>
-   if(pos1 <= 0 || pos1 > li->qtd || pos2 <= 0 || pos2 > li->qtd || pos <= 0 || pos > li->qtd)
+
+   if(pos1 <= 0 || pos2 <= 0)
       return -1;
-   
+
+   if(pos1 > li->qtd || pos2 > li->qtd)
+      return -1;
+
    else{
-      aux->dados[pos] = li->dados[pos1-1];
+      //Define um aluno auxiliar
+      struct aluno al;
+      al = li->dados[pos1-1];
       li->dados[pos1-1] = li->dados[pos2-1];
-      li->dados[pos2-1] = aux->dados[pos]; 
+      li->dados[pos2-1] = al;
       return 0;
    }
 }
+//lista auxiliar criada para realizar metrodo de troca de valores referente a suas posicoes.
+// check:<<<erro: é para criar um ALUNO auxiliar, não uma LISTA>>>>
+// check:<<<erro: lista aux nao foi inicializada>>>>
+// check:<<<erro: quem é 'pos'? valor é lixo inicialmente>>>>
