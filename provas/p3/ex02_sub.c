@@ -83,7 +83,14 @@ int list_concat3(TDLinkedList *pre, TDLinkedList *in, TDLinkedList *pos){
     else if(in->size == 0){
         pre->end->next = in->begin;
         in->begin->prev = pre->end;
+
+        if(pos->size != 0){
+            in->end->next = pos->begin;
+            pos->begin->prev = in->end;
+        }
         
+        pre->size += pos->size;
+
         while(list_size(in)>0){
             list_pop_back(in);
         }
@@ -95,6 +102,13 @@ int list_concat3(TDLinkedList *pre, TDLinkedList *in, TDLinkedList *pos){
     else if(pos->size == 0){
         pre->end->next = in->begin;
         in->begin->prev = pre->end;
+
+        if(in->size != 0){
+            in->end->next = pos->begin;
+            pos->begin->prev = in->end;
+        }
+
+        pre->size += in->size;
 
         while(list_size(in)>0){
             list_pop_back(in);
@@ -119,3 +133,10 @@ int list_concat3(TDLinkedList *pre, TDLinkedList *in, TDLinkedList *pos){
     }
     return SUCCESS;
 }
+
+/*
+    Uma outra alternativa de esvaziar as listas apos a concatenacao, seria apenas
+apontar os ponteiros "head" das listas antigas para NULL. Optei pela opcao de es-
+vaziar as listas via funcao do TAD (list_pop_back), na qual retira o ultimo elemen-
+to da lista enquanto o tamanho da lista for maior que zero.
+*/
