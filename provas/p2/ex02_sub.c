@@ -50,7 +50,8 @@ int remove_intervalo_lista(Lista *li, int posInicio, int posFim){
         if(k+cont >= li->qtd){//caso de remocao dos últimos elementos
             li->qtd -= cont;
         }
-        li->dados[k] = li->dados[k+cont]; 
+        li->dados[k] = li->dados[k+cont];
+        li->qtd--;
     }
     return 0;
 }
