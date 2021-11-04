@@ -60,6 +60,7 @@ int list_erase_max_nota_n1(TDLinkedList *li){
                 atual = atual->next;
             }
 
+            atual = li->begin;
             while(atual != NULL){
                 if(atual->data.n1 == maiorNota){
                     prox = atual;
