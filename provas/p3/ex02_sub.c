@@ -124,6 +124,8 @@ int list_concat3(TDLinkedList *pre, TDLinkedList *in, TDLinkedList *pos){
         in->end->next = pos->begin;
         pos->begin->prev = in->end;
 
+        pre->size = pre->size + in->size + pos->size;
+
         while(list_size(in)>0){
             list_pop_back(in);
         }
