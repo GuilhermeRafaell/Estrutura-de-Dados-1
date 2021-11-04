@@ -57,7 +57,7 @@ int mat2D_increase_size(TMat2D *mat, int nrow, int ncol){
         for(int i=0; i<nrow; i++){
             for(int j=0; j<ncol; j++){
 
-                pos = j * mat->nrows + i;//representacao linear da nova matriz
+                pos = j * nrow + i;//representacao linear da nova matriz
 
                 for(int a=0; a<mat->nrows; a++){
                     for(int b=0; b<mat->ncolumns; b++){
@@ -74,7 +74,7 @@ int mat2D_increase_size(TMat2D *mat, int nrow, int ncol){
             }
         }
         mat->nrows = nrow;
-        mat->ncolumns - ncol;
+        mat->ncolumns = ncol;
         free(mat->data);
         mat->data = newmat;
     }
